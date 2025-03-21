@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.luxury-button {
+  background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7);
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+  transition: all 0.3s ease;
+}
+
+.luxury-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(251, 245, 183, 0.5);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.parallax-bg {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.video-card {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.video-card:hover {
+  @apply transform scale-[1.02];
+}
+
+.video-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-[#BF953F]/30 via-[#FCF6BA]/10 to-[#AA771C]/30 rounded-xl opacity-0 transition-opacity duration-300 -z-10;
+}
+
+.video-card:hover::before {
+  @apply opacity-100;
+}
+
+.video-card:hover {
+  @apply shadow-[0_20px_40px_-15px_rgba(191,149,63,0.3)];
+}
+
+.video-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  transform: translateY(0);
+  transition: all 0.4s ease;
+}
+
+.watch-now-button {
+  background: linear-gradient(45deg, #BF953F, #AA771C);
+  color: black;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(251, 245, 183, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.875rem;
+}
+
+.watch-now-button:hover {
+  background: linear-gradient(45deg, #AA771C, #BF953F);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
